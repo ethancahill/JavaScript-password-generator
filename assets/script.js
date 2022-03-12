@@ -34,38 +34,51 @@ var createdpassword = {
 },
 };
 
-const lwcalphabet = "abcdefghijklmnopqrstuvwxyz";
-const randomlwcCharacter = lwcalphabet[Math.floor(Math.random() * lwcalphabet.length)];
-const upcalphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const randomupcCharacter = upcalphabet[Math.floor(Math.random() * upcalphabet.length)];
-const randomNumericCharacter = Math.floor(Math.random() * 10);
-const specCharacter = '!#$%&",()*+-./:;<=>?@[\]^_`{|}~';
-const randomspecCharacter = specCharacter[Math.floor(Math.random() * specCharacter)]
+let arrayFromLowToHigh = (low, high) => {
+  const array = [];
+  for (let i = low; i <= high; i++) {
+    array.push(i);
+  }
+  return array;
+};
 
-var passwordoptions = [randomNumericCharacter, randomlwcCharacter, randomupcCharacter, randomspecCharacter];
-var arraylength = passwordoptions.length;
-var randomArrayValue = Math.floor(Math.random() * arraylength)
+const uppercase = arrayFromLowToHigh(65, 90);
+const lowercase = arrayFromLowToHigh(97, 122);
+const numbers = arrayFromLowToHigh(48, 57);
+const symbols = arrayFromLowToHigh(33, 47)
+  .concat(arrayFromLowToHigh(58, 64))
+  .concat(arrayFromLowToHigh(91, 96))
+  .concat(arrayFromLowToHigh(123, 126));
+
+var GeneratePassword = function() {
+  var passlength = passwordlength()
+  var upper= createdpassword.uppercase()
+  var lower= createdpassword.lowercase()
+  var numeric= createdpassword.numeric()
+  var special= createdpassword.special()
+ let charCodes = []
 
 
-var passwordConditions = function(){
-  if (!createdpassword.uppercase()){
-    passwordoptions.splice(2,1)
-  }
-  if (!createdpassword.lowercase()){
-    passwordoptions.splice(1,1)
-  }
-  if (!createdpassword.special()){
-    passwordoptions.splice(3,1)
-  }
-  if (!createdpassword.numeric()){
-    passwordoptions.splice(0,1)
-  }
+if(upper){
+  charCodes = charCodes.concat(uppercase)
 }
-passwordlength()
-passwordConditions()
+if(lower){
+ charCodes = charCodes.concat(lowercase)
+}
+if(special){
+ charCodes = charCodes.concat(symbols)
+}
+if(numeric){
+charCodes = charCodes.concat(numbers)
+}
+const finalcharacters = [] 
+for(var i=0; i < passlength; i++){
+  const characters = charCodes[Math.floor(Math.random() * charCodes.length)]
+  finalcharacters.push(String.fromCharCode(characters));
+}
+return finalcharacters.join('')
+}
 
-console.log(passwordlength)
-console.log(passwordoptions)
 
   
 
@@ -77,9 +90,10 @@ function writePassword() {
   var password = GeneratePassword();
   var passwordText = document.querySelector("#password");
 
+    
 
   passwordText.value = password;
-
+console.log(masterArray)
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
