@@ -1,14 +1,4 @@
 // Assignment code here
-const lwcalphabet = "abcdefghijklmnopqrstuvwxyz";
-const randomlwcCharacter = lwcalphabet[Math.floor(Math.random() * lwcalphabet.length)];
-const upcalphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const randomupcCharacter = upcalphabet[Math.floor(Math.random() * upcalphabet.length)];
-const randomNumericCharacter = Math.floor(math.random() * 10);
-const specCharacter = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-
-var passwordoptions = [randomNumericCharacter, randomlwcCharacter, randomupcCharacter, specCharacter];
-var arraylength = passwordoptions.length;
-var randomArrayValue = Math.floor(Math.random() * arraylength)
 
 
   var passwordlength = function() {
@@ -16,13 +6,12 @@ var randomArrayValue = Math.floor(Math.random() * arraylength)
   var numpasslength = parseInt(passlength);
   if (numpasslength < 8 || numpasslength > 128){
     alert("Please enter a value between 8 and 128");
-    createdpassword.length()
+    passwordlength()
   } else {
     return numpasslength
 } 
 }
 var createdpassword = {
-  length: passwordlength(),
 
   uppercase: function(){
     var upper = confirm("Do you want your password to include uppercase letters?")
@@ -43,30 +32,40 @@ var createdpassword = {
     var spec = confirm("Do you want your password to contain special characters?")
     return spec
 },
-
 };
 
-var Declarations = function() {
+const lwcalphabet = "abcdefghijklmnopqrstuvwxyz";
+const randomlwcCharacter = lwcalphabet[Math.floor(Math.random() * lwcalphabet.length)];
+const upcalphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const randomupcCharacter = upcalphabet[Math.floor(Math.random() * upcalphabet.length)];
+const randomNumericCharacter = Math.floor(Math.random() * 10);
+const specCharacter = '!#$%&",()*+-./:;<=>?@[\]^_`{|}~';
+const randomspecCharacter = specCharacter[Math.floor(Math.random() * specCharacter)]
+
+var passwordoptions = [randomNumericCharacter, randomlwcCharacter, randomupcCharacter, randomspecCharacter];
+var arraylength = passwordoptions.length;
+var randomArrayValue = Math.floor(Math.random() * arraylength)
+
+
+var passwordConditions = function(){
   if (!createdpassword.uppercase()){
     passwordoptions.splice(2,1)
-  };
+  }
   if (!createdpassword.lowercase()){
     passwordoptions.splice(1,1)
-  };
+  }
   if (!createdpassword.special()){
     passwordoptions.splice(3,1)
-  };
+  }
   if (!createdpassword.numeric()){
     passwordoptions.splice(0,1)
-  };
-};
-var PasswordGenerator = function(){
-  for (var i = 0; i < createdpassword.length; i++) {
-    console.log(passwordoptions[randomArrayValue])
-  }  
   }
+}
+passwordlength()
+passwordConditions()
 
-
+console.log(passwordlength)
+console.log(passwordoptions)
 
   
 
