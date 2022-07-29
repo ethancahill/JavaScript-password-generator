@@ -21,9 +21,9 @@ function generatePassword() {
 var results = "";
 var numberOfCharacters = window.prompt("How long would you like your password to be?");
 
-var charQty = parseInt(numberOfCharacters);
+var number = parseInt(numberOfCharacters);
 
-  if(charQty > 7 && charQty < 129) { 
+  if(number > 7 && number < 129) { 
   
     var lower = window.confirm("Would you like to include lower case letters??");
 
@@ -38,21 +38,17 @@ var charQty = parseInt(numberOfCharacters);
     return generatePassword();
   }
 
-var pool = [];
+var password = [
+
+];
 
 
-  if (upper == true) pool.push(...alphabetUpper);
-
-  if (lower == true) pool.push(...alphabetLower);
-
-  if (numeric == true) pool.push(...numericArray);
-
-  if (special == true) pool.push(...specialArray);
+  
  
 if ( lower || upper || numeric || special) {
  
   for (var i = 0; i < charQty; i++) {
-    results += pool[Math.floor(Math.random()*pool.length)];
+    
     } 
    } else {
     window.alert("A minimum of one variable must be selected to generate a password.")
