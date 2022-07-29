@@ -18,7 +18,7 @@ const specialArray = myArraySpecial.map((x) => String.fromCharCode(x));
 
 
 function generatePassword() {
-var results = "";
+var results = [];
 var numberOfCharacters = window.prompt("How long would you like your password to be?");
 
 var number = parseInt(numberOfCharacters);
@@ -38,34 +38,45 @@ var number = parseInt(numberOfCharacters);
     return generatePassword();
   }
 
-var password = [];
+const passwordArr = [];
 
-const specialChar = "~!@#$%^&*()_+=-\':;?/>.<,`"
-const lowerCase ='asdfghjklpoiuytrewqzxcvbnm'
-const upperCase = 'QWERTYUIOPLKJHGFDSAZXCVBNM'
-const number = '1234567890'
+const specialChar = ["~", ",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "'", "="]
+const lowerCase =['a', 's', 'd', 'f', 'g','h','j','k','l','p','o', 'i','u','y','t','r','e','w','q','z','x','c','v','b','n','m',]
+const upperCase = ['Q','W','E','R','T','Y','U','I','O','P','L','K','J','H','G','F','D','S','A','Z','X','C','V','B','N','M']
+const numbers = ['1','2','3','4','5','6','7','8','9','0']
 
 if(special) {
-  password.push(specialChar)
-} if (lowercase){
-  password.push(lowerCase)
+  specialChar.map((char) => {
+    passwordArr.push(char)
+  })
+} if (lower){
+  lowerCase.map((char) => {
+    passwordArr.push(char)
+  })
 } if (upper){
-  password.push(upperCase) 
+  upperCase.map((char) => {
+    passwordArr.push(char)
+  })
 } if (number) {
-  password.push(number)
+  numbers.map((char) => {
+    passwordArr.push(char)
+  })
 }
   
  
 if ( lower || upper || numeric || special) {
  
   for (var i = 0; i < number; i++) {
-    
+    const randomValue = Math.floor(Math.random() * (passwordArr.length - 1 + 1) + 1)
+    results.push(passwordArr[randomValue])
     } 
    } else {
     window.alert("A minimum of one variable must be selected to generate a password.")
     return generatePassword();
    
   }
+
+  results.join(',')
   return results;
 }
 
