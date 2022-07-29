@@ -38,16 +38,27 @@ var number = parseInt(numberOfCharacters);
     return generatePassword();
   }
 
-var password = [
+var password = [];
 
-];
+const specialChar = "~!@#$%^&*()_+=-\':;?/>.<,`"
+const lowerCase ='asdfghjklpoiuytrewqzxcvbnm'
+const upperCase = 'QWERTYUIOPLKJHGFDSAZXCVBNM'
+const number = '1234567890'
 
-
+if(special) {
+  password.push(specialChar)
+} if (lowercase){
+  password.push(lowerCase)
+} if (upper){
+  password.push(upperCase) 
+} if (number) {
+  password.push(number)
+}
   
  
 if ( lower || upper || numeric || special) {
  
-  for (var i = 0; i < charQty; i++) {
+  for (var i = 0; i < number; i++) {
     
     } 
    } else {
