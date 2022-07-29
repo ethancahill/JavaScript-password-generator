@@ -76,8 +76,8 @@ if ( lower || upper || numeric || special) {
    
   }
 
-  results.join(',')
-  return results;
+  const finalResults = results.join('')
+  return finalResults;
 }
 
 
