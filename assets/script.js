@@ -4,17 +4,6 @@
 var generateBtn = document.querySelector("#generate");
 
 
-const myArrayUpper = Array.from(Array(26)).map((e,i) => i + 65);  
-const alphabetUpper = myArrayUpper.map((x) => String.fromCharCode(x));
-
-const myArrayLower = Array.from(Array(26)).map((e,i) => i + 97);
-const alphabetLower = myArrayLower.map((x) => String.fromCharCode(x));
-
-const myArrayNumeric = Array.from(Array(10)).map((e,i) => i + 48);
-const numericArray = myArrayNumeric.map((x) => String.fromCharCode(x));
-
-const myArraySpecial = Array.from(Array(15)).map((e,i) => i + 33);
-const specialArray = myArraySpecial.map((x) => String.fromCharCode(x));
 
 
 function generatePassword() {
