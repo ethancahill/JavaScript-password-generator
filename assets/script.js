@@ -25,13 +25,13 @@ var number = parseInt(numberOfCharacters);
 
   if(number > 7 && number < 129) { 
   
-    var lower = window.confirm("Would you like to include lower case letters??");
+    var lower = window.confirm("Include lower case letters??");
 
-    var upper = window.confirm("Would you like to include upper case letters?");
+    var upper = window.confirm("Include upper case letters?");
  
     var numeric = window.confirm("Include numbers?");
 
-    var special = window.confirm("Special Characters?");
+    var special = window.confirm("Include special characters?");
 
   } else {
     window.alert("That is an invalid entry. Select a length between 8 and 128");
@@ -71,7 +71,7 @@ if ( lower || upper || numeric || special) {
     results.push(passwordArr[randomValue])
     } 
    } else {
-    window.alert("A minimum of one variable must be selected to generate a password.")
+    window.alert("You must select one variable.")
     return generatePassword();
    
   }
