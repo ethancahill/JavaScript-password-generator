@@ -19,7 +19,7 @@ const specialArray = myArraySpecial.map((x) => String.fromCharCode(x));
 
 function generatePassword() {
 var results = [];
-var numberOfCharacters = window.prompt("How long would you like your password to be?");
+var numberOfCharacters = window.prompt("Please select a password length between and 8 and 128");
 
 var number = parseInt(numberOfCharacters);
 
