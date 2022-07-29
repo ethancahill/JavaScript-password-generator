@@ -25,7 +25,7 @@ var number = parseInt(numberOfCharacters);
 
   if(number > 7 && number < 129) { 
   
-    var lower = window.confirm("Include lower case letters??");
+    var lower = window.confirm("Include lower case letters?");
 
     var upper = window.confirm("Include upper case letters?");
  
