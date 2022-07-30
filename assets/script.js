@@ -9,21 +9,14 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
 var results = [];
 var numberOfCharacters = window.prompt("Please select a password length between and 8 and 128");
-
 var number = parseInt(numberOfCharacters);
-
   if(number > 7 && number < 129) { 
-  
-    var lower = window.confirm("Include lower case letters?");
-
+    var lower = window.confirm("Include lower case letters?")
     var upper = window.confirm("Include upper case letters?");
- 
     var numeric = window.confirm("Include numbers?");
-
     var special = window.confirm("Include special characters?");
-
   } else {
-    window.alert("That is an invalid entry. Select a length between 8 and 128");
+    window.alert("Select a length between 8 and 128");
     return generatePassword();
   }
 
@@ -52,7 +45,6 @@ if(special) {
   })
 }
   
- 
 if ( lower || upper || numeric || special) {
  
   for (var i = 0; i < number; i++) {
@@ -62,19 +54,13 @@ if ( lower || upper || numeric || special) {
    } else {
     window.alert("You must select one variable.")
     return generatePassword();
-   
   }
-
   const finalResults = results.join('')
   return finalResults;
 }
-
-
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-
 generateBtn.addEventListener("click", writePassword);
